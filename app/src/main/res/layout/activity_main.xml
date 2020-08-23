@@ -9,32 +9,34 @@
         android:id="@+id/LinearButtonGame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center">
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@color/colorAccent">
         <Button
-            android:id="@+id/TicTacToyButton"
+            android:id="@+id/TicTacToeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:text="TicTacToy" />
+            android:textSize="20dp"
+            android:text="Tic Tac Toe" />
 
         <Button
             android:id="@+id/FourInRowButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:text="FourInRow" />
+            android:textSize="20dp"
+            android:text="Four In Row" />
 
     </LinearLayout>
 
-
-
-    <FrameLayout
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_below="@+id/LinearButtonGame"
         android:layout_toLeftOf="@id/LinearButtonGame"
         android:layout_toRightOf="@id/LinearButtonGame">
 
-    </FrameLayout>
+    </LinearLayout>
 
 </RelativeLayout>
