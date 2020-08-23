@@ -3,34 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorGreen"
-    tools:context=".TicTacToyFragment"
+    android:background="@color/colorAccent"
+    tools:context=".TicTacToeFragment"
     android:orientation="vertical">
-<LinearLayout
-android:id="@+id/LinearButtonGame"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:orientation="horizontal"
-android:gravity="center"
-android:background="@color/colorAccent">
-<Button
-    android:id="@+id/TicTacToeButton"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentLeft="true"
-    android:textSize="20dp"
-    android:text="Tic Tac Toe" />
 
-<Button
-    android:id="@+id/FourInRowButton"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentRight="true"
-    android:textSize="20dp"
-    android:text="Four In Row" />
-
-
-</LinearLayout>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -49,17 +25,17 @@ android:background="@color/colorAccent">
             android:layout_height="wrap_content"
             android:layout_gravity="top">
             <Button
+                android:id="@+id/btn1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"/>
+                android:layout_height="wrap_content" />
             <Button
+                android:id="@+id/btn2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"/>
+                android:layout_height="wrap_content" />
             <Button
+                android:id="@+id/btn3"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"/>
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
         <LinearLayout
@@ -67,35 +43,37 @@ android:background="@color/colorAccent">
             android:layout_height="wrap_content"
             android:layout_gravity="center">
             <Button
+                android:id="@+id/btn4"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"/>
+                android:layout_height="wrap_content" />
             <Button
+                android:id="@+id/btn5"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"/>
+                android:layout_height="wrap_content" />
             <Button
+                android:id="@+id/btn6"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"/>
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom">
             <Button
+                android:id="@+id/btn7"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"/>
+                android:layout_height="wrap_content" />
             <Button
+                android:id="@+id/btn8"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"/>
+                android:layout_height="wrap_content" />
             <Button
+                android:id="@+id/btn9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"/>
+               />
 
         </LinearLayout>
 
