@@ -21,7 +21,7 @@ public class TicTacToeFragment extends Fragment {
     public static final String BUNDLE_PLAYERS_TURN = "BundlePlayersTurn";
     private Button[] mButtons = new Button[9];
 
-    private int[] mIsChoose = {2,2,2,2,2,2,2,2};
+    private int[] mIsChoose = {10,10,10,10,10,10,10,10,10};
     private int mPlayersTurn = 0;
 
 
