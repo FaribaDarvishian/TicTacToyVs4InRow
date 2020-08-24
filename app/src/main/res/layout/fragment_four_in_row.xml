@@ -19,7 +19,7 @@
         android:layout_marginBottom="120dp"
         android:gravity="center"
         android:text="Game: Four In a Row"
-        android:textColor="#040303"
+        android:textColor="@color/colorBlack"
         android:textSize="24sp" />
 
     <LinearLayout
