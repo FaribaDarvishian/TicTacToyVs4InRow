@@ -8,10 +8,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
-    private Button mButtonTicTocToe;
-    private Button mButtonFourInaRow;
-
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    Button mButtonTicTac;
+    Button mButtonSettings;
+    Button mButtonFourInRow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,60 +19,38 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         findViews();
-        setListeners();
-    }
 
+        if (getSupportFragmentManager().findFragmentById(R.id.fragment_container) == null)
+            getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, TicTacToeFragment.newInstance()).commit();
+
+    }
     private void findViews(){
-        mButtonTicTocToe = findViewById(R.id.TicTacToeButton);
-        mButtonFourInaRow = findViewById(R.id.FourInRowButton);
+        mButtonTicTac = findViewById(R.id.btn_start_tic_tac);
+        mButtonFourInRow = findViewById(R.id.btn_start_in_row);
+        mButtonSettings = findViewById(R.id.btn_setting);
+
+        mButtonTicTac.setOnClickListener(this);
+        mButtonFourInRow.setOnClickListener(this);
+        mButtonSettings.setOnClickListener(this);
+
+
     }
 
-    private void setListeners(){
+    @Override
+    public void onClick(View v) {
+        if (v == mButtonTicTac){
+            if (getSupportFragmentManager().findFragmentById(R.id.fragment_container) != TicTacToeFragment.newInstance())
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, TicTacToeFragment.newInstance()).commit();
+        }
 
-        mButtonTicTocToe.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                Fragment fragment = fragmentManager.findFragmentById(R.id.Container);
+//        if (v == mButtonFourInRow){
+//            if (getSupportFragmentManager().findFragmentById(R.id.fragment_container) != FourInRowFragment.newInstance() )
+//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, FourInRowFragment.newInstance()).commit();
+//        }
 
-                if (fragment == null) {
-                    TicTacToeFragment ticTacToeFragment = new TicTacToeFragment();
-                    fragmentManager
-                            .beginTransaction()
-                            .add(R.id.Container, ticTacToeFragment)
-                            .commit();
-                } else{
-                    Fragment fragment1 = fragmentManager.findFragmentById(R.id.Container);
-                    fragmentManager.beginTransaction().remove(fragment1).
-                            commit();
-
-                    TicTacToeFragment ticTacToeFragment = new TicTacToeFragment();
-                    fragmentManager.beginTransaction().add(R.id.Container, ticTacToeFragment).
-                            commit();
-                }
-            }
-        });
-
-        mButtonFourInaRow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                Fragment fragment = fragmentManager.findFragmentById(R.id.Container);
-
-                if (fragment == null) {
-                    FourInRowFragment fourInRowFragment = new FourInRowFragment();
-                    fragmentManager.beginTransaction().add(R.id.Container, fourInRowFragment).
-                            commit();
-                }else{
-                    Fragment fragment2 = fragmentManager.findFragmentById(R.id.Container);
-                    fragmentManager.beginTransaction().remove(fragment2).
-                            commit();
-
-                    FourInRowFragment fourInRowFragment = new FourInRowFragment();
-                    fragmentManager.beginTransaction().add(R.id.Container, fourInRowFragment).
-                            commit();
-                }
-            }
-        });
+        if (v == mButtonSettings){
+            if (getSupportFragmentManager().findFragmentById(R.id.fragment_container) != SettingFragment.newInstance())
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, SettingFragment.newInstance()).commit();
+        }
     }
 }

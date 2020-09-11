@@ -7,33 +7,47 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
     <LinearLayout
-        android:id="@+id/LinearButtonGame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
-        <Button
-            android:id="@+id/TicTacToeButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:text="Tic Tac Toe" />
-
-        <Button
-            android:id="@+id/FourInRowButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:text="Four In Row" />
-
-    </LinearLayout>
-
-    <FrameLayout
-        android:id="@+id/Container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:weightSum="3"
         android:orientation="horizontal">
 
-    </FrameLayout>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_start_tic_tac"
+            android:text="tic_tac_toe"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/btn_style"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_setting"
+            android:text="settings"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/btn_style"/>
+
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_start_in_row"
+            android:text="Four_In_Row"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/btn_style"/>
+    </LinearLayout>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/fragment_container"/>
 
 </LinearLayout>

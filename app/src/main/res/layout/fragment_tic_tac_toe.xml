@@ -1,84 +1,192 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
-    tools:context=".TicTacToeFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".TicTacToeFragment">
 
-    <TextView
-        android:id="@+id/txtTicTacToeGame"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Game : Tic Tac Toe"
-        android:layout_marginTop="5dp"
-        android:layout_gravity="center"
-        android:textColor="@color/colorBlack"
-        android:textSize="30dp"/>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="200dp"
         android:orientation="vertical">
-        <LinearLayout
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:text="@string/game_tic_tac_toe"
+            android:textColor="@color/colorBlack"
+            android:textSize="16sp" />
+
+
+        <RelativeLayout
+            android:id="@+id/tic_tac_toe_gamer_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="top">
-            <Button
-                android:id="@+id/btn1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <Button
-                android:id="@+id/btn2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <Button
-                android:id="@+id/btn3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+            android:padding="16dp"
+            android:layout_marginTop="24dp">
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center">
-            <Button
-                android:id="@+id/btn4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <Button
-                android:id="@+id/btn5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <Button
-                android:id="@+id/btn6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-        <LinearLayout
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom">
-            <Button
-                android:id="@+id/btn7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <Button
-                android:id="@+id/btn8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <Button
-                android:id="@+id/btn9"
+            <TextView
+                android:id="@+id/tic_gamer1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-               />
+                android:layout_gravity="center_horizontal"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tic_gamer2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_alignParentEnd="true"
+                android:textSize="16sp"
+                android:layout_alignParentRight="true" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/tic_tac_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="?attr/actionBarSize"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <Button
+                    android:id="@+id/btn_00"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_style_default_tic_tac_toe"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="40sp" />
+
+                <Button
+                    android:id="@+id/btn_01"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_style_default_tic_tac_toe"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="40sp" />
+
+
+                <Button
+                    android:id="@+id/btn_02"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_style_default_tic_tac_toe"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="40sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="?attr/actionBarSize"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <Button
+                    android:id="@+id/btn_10"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_style_default_tic_tac_toe"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="40sp" />
+
+                <Button
+                    android:id="@+id/btn_11"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_style_default_tic_tac_toe"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="40sp" />
+
+
+                <Button
+                    android:id="@+id/btn_12"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_style_default_tic_tac_toe"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="40sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="?attr/actionBarSize"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <Button
+                    android:id="@+id/btn_20"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_style_default_tic_tac_toe"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="40sp" />
+
+                <Button
+                    android:id="@+id/btn_21"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_style_default_tic_tac_toe"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="40sp" />
+
+
+                <Button
+                    android:id="@+id/btn_22"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_style_default_tic_tac_toe"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="40sp" />
+
+
+            </LinearLayout>
+
 
         </LinearLayout>
 
+        <Button
+            android:id="@+id/reset_tic_tac"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/btn_style"
+            android:gravity="center"
+            android:text="Reset"
+            android:textColor="@color/colorWhite"
+            android:visibility="invisible" />
+
+
     </LinearLayout>
-</LinearLayout>
+
+
+</ScrollView>
