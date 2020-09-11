@@ -1,12 +1,15 @@
-package com.example.tictactoyvs4inrow;
+package com.example.tictactoyvs4inrow.controller.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.tictactoyvs4inrow.R;
+import com.example.tictactoyvs4inrow.controller.fragment.FourInRowFragment;
+import com.example.tictactoyvs4inrow.controller.fragment.SettingFragment;
+import com.example.tictactoyvs4inrow.controller.fragment.TicTacToeFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Button mButtonTicTac;

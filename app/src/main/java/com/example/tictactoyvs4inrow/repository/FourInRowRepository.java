@@ -1,7 +1,9 @@
-package com.example.tictactoyvs4inrow;
+package com.example.tictactoyvs4inrow.repository;
 
 
 import android.view.View;
+
+import com.example.tictactoyvs4inrow.Player;
 
 import java.util.Arrays;
 

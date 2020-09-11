@@ -1,4 +1,4 @@
-package com.example.tictactoyvs4inrow.model;
+package com.example.tictactoyvs4inrow.repository;
 
 public class SettingRepository {
     private static SettingRepository sRepository;
@@ -14,6 +14,7 @@ public class SettingRepository {
     private int mScoreGamer1, mScoreGamer2;
     private String gamer1 = "", gamer2 = "";
     private boolean mBooleanGamerCheck;
+    private int numberOfRows, numberOfColumns;
 
 
     public boolean getBooleanGamerCheck() {
@@ -55,6 +56,22 @@ public class SettingRepository {
 
     public void setGamer2(String gamer2) {
         this.gamer2 = gamer2;
+    }
+
+    public int getNumberOfRows() {
+        return numberOfRows;
+    }
+
+    public void setNumberOfRows(int numberOfRows) {
+        this.numberOfRows = numberOfRows;
+    }
+
+    public int getNumberOfColumns() {
+        return numberOfColumns;
+    }
+
+    public void setNumberOfColumns(int numberOfColumns) {
+        this.numberOfColumns = numberOfColumns;
     }
 
 

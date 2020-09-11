@@ -1,4 +1,4 @@
-package com.example.tictactoyvs4inrow;
+package com.example.tictactoyvs4inrow.controller.fragment;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -14,7 +14,10 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.tictactoyvs4inrow.model.SettingRepository;
+import com.example.tictactoyvs4inrow.Player;
+import com.example.tictactoyvs4inrow.R;
+import com.example.tictactoyvs4inrow.repository.FourInRowRepository;
+import com.example.tictactoyvs4inrow.repository.SettingRepository;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
@@ -31,11 +34,9 @@ public class FourInRowFragment extends Fragment implements View.OnClickListener 
     private LinearLayout mLinearLayoutMain;
     private RelativeLayout mRelativeLayoutGamerName;
     private TextView mTextViewGamer1, mTextViewGamer2;
-
-    private Button mButtonReset;
-
     private FourInRowRepository mFourInRowRepository;
     private SettingRepository mSettingsRepository;
+    private Button mButtonReset;
     private List<List<Button>> mButtonsList = new ArrayList<>();
 
     public static FourInRowFragment newInstance() {
@@ -51,10 +52,8 @@ public class FourInRowFragment extends Fragment implements View.OnClickListener 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        mSettingsRepository = SettingRepository.getInstance();
         mFourInRowRepository = FourInRowRepository.getInstance();
-
+        mSettingsRepository = SettingRepository.getInstance();
     }
 
 
@@ -82,10 +81,6 @@ public class FourInRowFragment extends Fragment implements View.OnClickListener 
             }
 
         }
-
-
-        // configurationChange(savedInstanceState);
-
         return view;
     }
 

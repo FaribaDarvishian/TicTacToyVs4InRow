@@ -1,4 +1,4 @@
-package com.example.tictactoyvs4inrow;
+package com.example.tictactoyvs4inrow.controller.fragment;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -13,8 +13,10 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.tictactoyvs4inrow.model.SettingRepository;
-import com.example.tictactoyvs4inrow.model.TicTacToeRepository;
+import com.example.tictactoyvs4inrow.Player;
+import com.example.tictactoyvs4inrow.R;
+import com.example.tictactoyvs4inrow.repository.SettingRepository;
+import com.example.tictactoyvs4inrow.repository.TicTacToeRepository;
 import com.google.android.material.snackbar.Snackbar;
 
 

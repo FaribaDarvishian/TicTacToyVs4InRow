@@ -1,4 +1,4 @@
-package com.example.tictactoyvs4inrow;
+package com.example.tictactoyvs4inrow.controller.fragment;
 
 import android.os.Bundle;
 
@@ -15,7 +15,9 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 
-import com.example.tictactoyvs4inrow.model.SettingRepository;
+import com.example.tictactoyvs4inrow.R;
+import com.example.tictactoyvs4inrow.repository.FourInRowRepository;
+import com.example.tictactoyvs4inrow.repository.SettingRepository;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,8 +28,10 @@ public class SettingFragment extends Fragment {
 
     LinearLayout mLinearLayoutGame;
     private SettingRepository mSettingsRepository;
+    private FourInRowRepository mFourInRowRepository;
     private CheckBox mCheckBoxGamer;
     private EditText mEditTextGamer1, mEditTextGamer2;
+    private NumberPicker mNumberPickerRows, mNumberPickerColumns;
 
 
     public static SettingFragment newInstance() {
@@ -60,12 +64,30 @@ public class SettingFragment extends Fragment {
 
         mCheckBoxGamer = view.findViewById(R.id.checkBox_gamer);
         mEditTextGamer1 = view.findViewById(R.id.editText_gamer1);
-        mEditTextGamer2 = view.findViewById(R.id.gamer2);
+        mEditTextGamer2 = view.findViewById(R.id.editText_gamer2);
         mLinearLayoutGame = view.findViewById(R.id.gamer_layout_settings);
+
+        mNumberPickerRows = view.findViewById(R.id.number_picker_row);
+        mNumberPickerColumns = view.findViewById(R.id.number_picker_column);
 
     }
 
     private void setListeners() {
+        mNumberPickerRows.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                mSettingsRepository.setNumberOfRows(newVal);
+                mFourInRowRepository.setIntRow(newVal);
+            }
+        });
+
+        mNumberPickerColumns.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                mSettingsRepository.setNumberOfColumns(newVal);
+                mFourInRowRepository.setIntColumn(newVal);
+            }
+        });
 
 
         mCheckBoxGamer.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -137,11 +159,21 @@ public class SettingFragment extends Fragment {
 
     private void initialization(){
 
+        // min and max of NumberPicker
+        mNumberPickerRows.setMinValue(5);
+        mNumberPickerRows.setMaxValue(8);
+        mNumberPickerColumns.setMinValue(5);
+        mNumberPickerColumns.setMaxValue(8);
+
+        mNumberPickerRows.setValue(mFourInRowRepository.getIntRow());
+        mNumberPickerColumns.setValue(mFourInRowRepository.getIntColumn());
         mCheckBoxGamer.setChecked(mSettingsRepository.getBooleanGamerCheck());
 
         mEditTextGamer1.setText(mSettingsRepository.getGamer1());
         mEditTextGamer2.setText(mSettingsRepository.getGamer2());
         mEditTextGamer1.setEnabled(mSettingsRepository.getBooleanGamerCheck());
         mEditTextGamer2.setEnabled(mSettingsRepository.getBooleanGamerCheck());
+
+
     }
 }

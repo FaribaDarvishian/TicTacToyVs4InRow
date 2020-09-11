@@ -1,4 +1,4 @@
-package com.example.tictactoyvs4inrow.model;
+package com.example.tictactoyvs4inrow.repository;
 
 import android.view.View;
 
