@@ -43,10 +43,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, TicTacToeFragment.newInstance()).commit();
         }
 
-//        if (v == mButtonFourInRow){
-//            if (getSupportFragmentManager().findFragmentById(R.id.fragment_container) != FourInRowFragment.newInstance() )
-//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, FourInRowFragment.newInstance()).commit();
-//        }
+        if (v == mButtonFourInRow){
+            if (getSupportFragmentManager().findFragmentById(R.id.fragment_container) != FourInRowFragment.newInstance() )
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, FourInRowFragment.newInstance()).commit();
+        }
 
         if (v == mButtonSettings){
             if (getSupportFragmentManager().findFragmentById(R.id.fragment_container) != SettingFragment.newInstance())

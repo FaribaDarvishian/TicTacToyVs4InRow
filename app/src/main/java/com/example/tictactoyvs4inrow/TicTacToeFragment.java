@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
@@ -17,15 +18,15 @@ import com.example.tictactoyvs4inrow.model.TicTacToeRepository;
 import com.google.android.material.snackbar.Snackbar;
 
 
-public class TicTacToeFragment extends Fragment implements View.OnClickListener{
 
+public class TicTacToeFragment extends Fragment implements OnClickListener {
 
     private Button mButton00, mButton01, mButton02, mButton10, mButton11, mButton12, mButton20, mButton21, mButton22, mButtonReset;
     private Button[][] mButtons;
     private RelativeLayout mRelativeLayoutGamerName;
     private TextView mTextViewGamer1, mTextViewGamer2;
     private TicTacToeRepository mTicTacToeRepository;
-    private SettingRepository mSettingRepository;
+    private SettingRepository mSettingsRepository;
 
     public static TicTacToeFragment newInstance() {
 
@@ -41,7 +42,7 @@ public class TicTacToeFragment extends Fragment implements View.OnClickListener{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
+        mSettingsRepository = SettingRepository.getInstance();
         mTicTacToeRepository = TicTacToeRepository.getInstance();
 
     }
@@ -86,7 +87,9 @@ public class TicTacToeFragment extends Fragment implements View.OnClickListener{
         mButton21.setOnClickListener(this);
         mButton22.setOnClickListener(this);
         mButtonReset.setOnClickListener(this);
-        mButtons = new Button[][]{{mButton00, mButton01, mButton02},{mButton10, mButton11, mButton12}, {mButton20, mButton21, mButton22}};
+        mButtons = new Button[][]{{mButton00, mButton01, mButton02},
+                                  {mButton10, mButton11, mButton12},
+                                  {mButton20, mButton21, mButton22}};
 
     }
 
@@ -165,19 +168,19 @@ public class TicTacToeFragment extends Fragment implements View.OnClickListener{
         if (mTicTacToeRepository.isGameOver()){
             String winner = mTicTacToeRepository.getMessage();
 
-            if (mSettingRepository.getGamer1().length() > 0 && mSettingRepository.getGamer2().length() > 0) {
+            if (mSettingsRepository.getGamer1().length() > 0 && mSettingsRepository.getGamer2().length() > 0) {
 
 
                 if (winner.contains("X")) {
-                    winner = mSettingRepository.getGamer1() + " wins!";
-                    mSettingRepository.setScoreGamer1(mSettingRepository.getScoreGamer1() + 1);
+                    winner = mSettingsRepository.getGamer1() + " wins!";
+                    mSettingsRepository.setScoreGamer1(mSettingsRepository.getScoreGamer1() + 1);
                 }
                 else if (winner.contains("O")) {
-                    winner = mSettingRepository.getGamer2() + " wins!";
-                    mSettingRepository.setScoreGamer2(mSettingRepository.getScoreGamer2() + 1);
+                    winner = mSettingsRepository.getGamer2() + " wins!";
+                    mSettingsRepository.setScoreGamer2(mSettingsRepository.getScoreGamer2() + 1);
                 }
-                mTextViewGamer1.setText("Gamer 1 : " + mSettingRepository.getGamer1() + "\nScore : " + mSettingRepository.getScoreGamer1());
-                mTextViewGamer2.setText("Gamer 2 : " + mSettingRepository.getGamer2() + "\nScore : " + mSettingRepository.getScoreGamer2());
+                mTextViewGamer1.setText("Gamer 1 : " + mSettingsRepository.getGamer1() + "\nScore : " + mSettingsRepository.getScoreGamer1());
+                mTextViewGamer2.setText("Gamer 2 : " + mSettingsRepository.getGamer2() + "\nScore : " + mSettingsRepository.getScoreGamer2());
             }
             Snackbar.make(view, winner, Snackbar.LENGTH_LONG).show();
 
@@ -201,11 +204,11 @@ public class TicTacToeFragment extends Fragment implements View.OnClickListener{
     }
 
     private void setGamerName() {
-        if (mSettingRepository.getGamer1().length() > 0 && mSettingRepository.getGamer2().length() > 0) {
+        if (mSettingsRepository.getGamer1().length() > 0 && mSettingsRepository.getGamer2().length() > 0) {
             mRelativeLayoutGamerName.setVisibility(View.VISIBLE);
             mTextViewGamer1.setTextColor(Color.BLUE);
-            mTextViewGamer1.setText("Gamer 1 : " + mSettingRepository.getGamer1() + "\nScore : " + mSettingRepository.getScoreGamer1());
-            mTextViewGamer2.setText("Gamer 2 : " + mSettingRepository.getGamer2() + "\nScore : " + mSettingRepository.getScoreGamer2());
+            mTextViewGamer1.setText("Gamer 1 : " + mSettingsRepository.getGamer1() + "\nScore : " + mSettingsRepository.getScoreGamer1());
+            mTextViewGamer2.setText("Gamer 2 : " + mSettingsRepository.getGamer2() + "\nScore : " + mSettingsRepository.getScoreGamer2());
         }
     }
 }
